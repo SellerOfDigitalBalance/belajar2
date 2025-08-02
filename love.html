@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -81,24 +81,6 @@
 
       .photo-frame.active {
         opacity: 1;
-      }
-
-      .photo-frame img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-
-      @keyframes pulse {
-        0% {
-          transform: scale(1);
-        }
-        50% {
-          transform: scale(1.05);
-        }
-        100% {
-          transform: scale(1);
-        }
       }
 
       .photo-frame img {
@@ -198,11 +180,21 @@
         pointer-events: none;
         z-index: 1;
       }
+
+      .music-control {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: rgba(255, 255, 255, 0.8);
+        padding: 10px;
+        border-radius: 50px;
+        z-index: 100;
+        cursor: pointer;
+      }
     </style>
   </head>
   <body>
     <div class="overlay"></div>
-
     <div class="container">
       <h1>Hari Pacar Nasional</h1>
       <div class="photo-slider">
@@ -246,11 +238,6 @@
           <img src="13.jpg" alt="Foto romantis 13" />
         </div>
       </div>
-      <p>
-        Ini adalah hari spesial untuk mengungkapkan betapa berharganya kamu
-        dalam hidupku. Setiap detik bersamamu adalah anugerah yang tak
-        ternilai...
-      </p>
       <button class="btn-surprise" id="surpriseBtn">Buka Kejutannya!</button>
     </div>
 
@@ -266,11 +253,15 @@
         Untuk Kamu!
       </h2>
       <p style="margin-bottom: 1.5rem">
-        Terima kasih sudah menjadi bagian dari hidupku. Kamu adalah sumber
-        kebahagiaanku setiap hari.
+        Banyak hal yang telah kita lewati, telah kita jalani.. dan sampai
+        akhirnya puncak dari hubungan kita adalah seperti sekarang.. terimakasih
+        sudah banyak berjuang untuk hubungan kitaa.. meskipun ini ucapan hari
+        pacar dan kita sudah bukan pacar.. tapi rasa kita, sayangg kita, masii
+        sama seperti pacar.. semoga kita diberikan kekuatan, kesabarann, dan
+        yang paling utamaa DUITTTTTT hehee
       </p>
       <p style="font-weight: 600; color: #ff5e62">
-        Aku mencintaimu lebih dari apapun! ❤️
+        Aku sayangg bangett samaa kamuu ! ❤️
       </p>
       <button
         class="btn-surprise"
@@ -284,7 +275,35 @@
       </button>
     </div>
 
+    <div class="music-control" id="musicToggle">🔊</div>
+
     <script>
+      // Fungsi untuk musik
+      const bgMusic = document.getElementById("bgMusic");
+      const musicToggle = document.getElementById("musicToggle");
+      let isPlaying = false;
+
+      // Mulai mainkan musik saat halaman dimuat
+      window.addEventListener("click", function () {
+        if (!isPlaying) {
+          bgMusic.play();
+          musicToggle.textContent = "🔊";
+          isPlaying = true;
+        }
+      });
+
+      // Toggle musik
+      musicToggle.addEventListener("click", function () {
+        if (isPlaying) {
+          bgMusic.pause();
+          this.textContent = "🔇";
+        } else {
+          bgMusic.play();
+          this.textContent = "🔊";
+        }
+        isPlaying = !isPlaying;
+      });
+
       // Membuat efek hati melayang
       function createHearts() {
         const heart = document.createElement("div");
