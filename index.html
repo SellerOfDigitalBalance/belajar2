@@ -309,35 +309,7 @@
       </button>
     </div>
 
-    <div class="music-control" id="musicToggle">🔊</div>
-
     <script>
-      // Fungsi untuk musik
-      const bgMusic = document.getElementById("bgMusic");
-      const musicToggle = document.getElementById("musicToggle");
-      let isPlaying = false;
-
-      // Mulai mainkan musik saat halaman dimuat
-      window.addEventListener("click", function () {
-        if (!isPlaying) {
-          bgMusic.play();
-          musicToggle.textContent = "🔊";
-          isPlaying = true;
-        }
-      });
-
-      // Toggle musik
-      musicToggle.addEventListener("click", function () {
-        if (isPlaying) {
-          bgMusic.pause();
-          this.textContent = "🔇";
-        } else {
-          bgMusic.play();
-          this.textContent = "🔊";
-        }
-        isPlaying = !isPlaying;
-      });
-
       // Membuat efek hati melayang
       function createHearts() {
         const heart = document.createElement("div");
